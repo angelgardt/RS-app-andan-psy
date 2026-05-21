@@ -1,0 +1,52 @@
+project:
+  type: book
+  output-dir: docs
+  preview:
+    port: 7035
+
+lang: ru
+metadata-files:
+  - _metadata.yml
+
+book:
+  title: "RS ANDAN // PSY HSE"
+  subtitle: "НИС «Прикладной анализ данных в психологии // Скрипты"
+  author:
+    - name: "А. Ангельгардт"
+      affiliations:
+        - name: "НИУ ВШЭ // Департамент психологии"
+  date: today
+  chapters:
+    - index.qmd
+    - sems/prob-randvals.qmd
+    - sems/rpy-basics.qmd
+    - sems/rpy-data.qmd
+    - sems/rpy-tidybase.qmd
+    - sems/rpy-tidyadv.qmd
+    - sems/rpy-strdt.qmd
+    - sems/rpy-vis.qmd
+    - sems/stats-desc.qmd
+    - sems/stats-norm.qmd
+    - sems/stats-cltci.qmd
+    - sems/stats-hyptest.qmd
+    - sems/stats-chisq.qmd
+    - sems/stats-freqpval.qmd
+    - sems/andan-cor.qmd
+    - sems/andan-lm.qmd
+    - sems/andan-lmx.qmd
+    - sems/andan-owanova.qmd
+    - sems/andan-twanova.qmd
+    - sems/andan-nonparam.qmd
+    - sems/andan-glmlog.qmd
+    - sems/andan-ml.qmd
+    - sems/andan-efa.qmd
+    - sems/andan-cfa.qmd
+    - sems/andan-clust.qmd
+    # - references.qmd
+
+# bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - minty
