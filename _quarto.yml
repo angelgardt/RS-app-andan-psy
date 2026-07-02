@@ -10,7 +10,7 @@ metadata-files:
 
 book:
   title: "RS ANDAN // PSY HSE"
-  subtitle: "НИС «Прикладной анализ данных в психологии // Скрипты"
+  subtitle: "НИС «Прикладной анализ данных в психологии»"
   author:
     - name: "А. Ангельгардт"
       affiliations:
@@ -18,30 +18,32 @@ book:
   date: today
   chapters:
     - index.qmd
-    - sems/prob-randvals.qmd
-    - sems/rpy-basics.qmd
-    - sems/rpy-data.qmd
-    - sems/rpy-tidybase.qmd
-    - sems/rpy-tidyadv.qmd
-    - sems/rpy-strdt.qmd
-    - sems/rpy-vis.qmd
-    - sems/stats-desc.qmd
-    - sems/stats-norm.qmd
-    - sems/stats-cltci.qmd
-    - sems/stats-hyptest.qmd
-    - sems/stats-chisq.qmd
-    - sems/stats-freqpval.qmd
-    - sems/andan-cor.qmd
-    - sems/andan-lm.qmd
-    - sems/andan-lmx.qmd
-    - sems/andan-owanova.qmd
-    - sems/andan-twanova.qmd
-    - sems/andan-nonparam.qmd
-    - sems/andan-glmlog.qmd
-    - sems/andan-ml.qmd
-    - sems/andan-efa.qmd
-    - sems/andan-cfa.qmd
-    - sems/andan-clust.qmd
+    - chpts/prob-sample.qmd
+    - chpts/prob-randvals.qmd
+    - chpts/rpy-basics.qmd
+    - chpts/rpy-data.qmd
+    - chpts/rpy-tidybase.qmd
+    - chpts/rpy-tidyadv.qmd
+    - chpts/rpy-strdt.qmd
+    - chpts/rpy-vis.qmd
+    - chpts/stats-desc.qmd
+    - chpts/stats-norm.qmd
+    - chpts/stats-cltci.qmd
+    - chpts/stats-hyptest.qmd
+    - chpts/andan-chisq.qmd
+    - chpts/stats-freqpval.qmd
+    - chpts/andan-cor.qmd
+    - chpts/andan-lm.qmd
+    - chpts/andan-lmx.qmd
+    - chpts/andan-owanova.qmd
+    - chpts/andan-twanova.qmd
+    - chpts/andan-rmanova.qmd
+    - chpts/andan-nonparam.qmd
+    - chpts/andan-glmlog.qmd
+    - chpts/andan-ml.qmd
+    - chpts/andan-efa.qmd
+    - chpts/andan-cfa.qmd
+    - chpts/andan-clust.qmd
     # - references.qmd
 
 # bibliography: references.bib
