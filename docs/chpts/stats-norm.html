@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -199,67 +228,73 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-cor.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">andan-cor</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Корреляционный анализ</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-lm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">andan-lm</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Линейная регрессия</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-lmx.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">andan-lmx</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Взаимодействие предикторов</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-owanova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">andan-owanova</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Однофакторный дисперсионый анализ</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-twanova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">andan-twanova</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Многофакторный дисперсионный анализ</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chpts/andan-rmanova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Дисперсионный анализ с&nbsp;повторными измерениями</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-nonparam.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">andan-nonparam</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Обзор непараметрических методов</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-glmlog.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">andan-glmlog</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Логистическая регрессия</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-ml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">andan-ml</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Линейные модели в&nbsp;машинном обучении</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-efa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">andan-efa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Эксплораторный факторный анализ</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-cfa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">andan-cfa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Конфирматорный факторный анализ</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/andan-clust.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">andan-clust</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Кластерный анализ</span></span></a>
   </div>
 </li>
     </ul>
@@ -268,7 +303,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#norm-popdist" id="toc-norm-popdist" class="nav-link active" data-scroll-target="#norm-popdist"><span class="header-section-number">10.1</span> Распределение признаков в&nbsp;генеральной совокупности</a></li>
+  <li><a href="#norm-normdist" id="toc-norm-normdist" class="nav-link" data-scroll-target="#norm-normdist"><span class="header-section-number">10.2</span> Нормальное распределение</a>
+  <ul class="collapse">
+  <li><a href="#norm-normdist-params" id="toc-norm-normdist-params" class="nav-link" data-scroll-target="#norm-normdist-params"><span class="header-section-number">10.2.1</span> Параметры нормального распределения</a></li>
+  <li><a href="#norm-normdist-shape" id="toc-norm-normdist-shape" class="nav-link" data-scroll-target="#norm-normdist-shape"><span class="header-section-number">10.2.2</span> Форма нормального распределения и&nbsp;параметры</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -292,8 +338,101 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="intro">
+<p>Итак, мы научились описывать эмпирическое распределение переменных&nbsp;— то&nbsp;есть распределение, которое получено на&nbsp;выборке. Но&nbsp;ведь в&nbsp;генеральной совокупности наши переменные тоже каким-то образом распределены. Уделим внимание и&nbsp;этому вопросу.</p>
+</div>
+<section id="norm-popdist" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="norm-popdist"><span class="header-section-number">10.1</span> Распределение признаков в&nbsp;генеральной совокупности</h2>
+<p>— Можем&nbsp;ли мы знать наверняка, как&nbsp;распределен признак в&nbsp;генеральной совокупности? <br> — Нет. <br> Однако мы можем предполагать некоторое теоретическое распределение признака.</p>
+<p>На&nbsp;основе чего мы можем сделать такое предположение? Конечно&nbsp;же, на&nbsp;основе собранных данных, то&nbsp;есть на&nbsp;основании выборки. Большой выборки. Очень большой выборки. Большого количества очень больших выборок.</p>
+<p>На&nbsp;практике мы руководствуемся либо рядом допущений относительно теоретического распределения случайной величины, либо опираемся на&nbsp;математические обоснования формы распределения.</p>
+<p>Теоретических распределений существует много. Они различаются по&nbsp;форме, параметрам, которыми они задаются, значениям, которые они могут принимать, величинам, которые ими можно описывать и&nbsp;т.&nbsp;д. Однако есть одно распределение, которое является крайне распространенным и&nbsp;очень широко используемым&nbsp;— <em>нормальное распределение</em>. Его мы и&nbsp;будем рассматривать.</p>
+</section>
+<section id="norm-normdist" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="norm-normdist"><span class="header-section-number">10.2</span> Нормальное распределение</h2>
+<p>Тот факт, что некоторая величина распределена согласно закону <strong>нормального распределения (normal distribution)</strong>, записывается следующим образом:</p>
+<p><span class="math display">\[
+X \thicksim \norm(\mu, \sigma^2)
+\]</span></p>
+<p>Здесь <span class="math inline">\(X\)</span>&nbsp;— некоторая случайная величина (переменная), <span class="math inline">\(\mathcal{N}\)</span>&nbsp;— обозначение нормального распределения, <span class="math inline">\(\mu\)</span> и&nbsp;<span class="math inline">\(\sigma^2\)</span>&nbsp;— параметры нормального распределения.</p>
+<section id="norm-normdist-params" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="norm-normdist-params"><span class="header-section-number">10.2.1</span> Параметры нормального распределения</h3>
+<p>Итак, в&nbsp;скобках указаны параметры распределения&nbsp;— как можно видеть, их всего два. На&nbsp;самом деле, мы их уже хорошо знаем:</p>
+<ul>
+<li><span class="math inline">\(\mu\)</span>&nbsp;— это не&nbsp;что иное, как среднее,</li>
+<li><span class="math inline">\(\sigma^2\)</span>&nbsp;— дисперсия.</li>
+</ul>
+<p>Эти два параметра входят в&nbsp;формулу, описывающую график функции плотности вероятности нормального распределения (<a href="#eq-norm-pdf" class="quarto-xref">Уравнение&nbsp;<span>10.1</span></a>) и&nbsp;могут быть отображены на&nbsp;графике (<a href="#fig-normdist-pdf" class="quarto-xref">Рисунок&nbsp;<span>10.1</span></a>).</p>
+<p><span id="eq-norm-pdf"><span class="math display">\[
+f_{\norm(\mu, \sigma^2)}(x) = \frac{1}{\sigma \sqrt{2\pi}} e ^{- \frac{(x-\mu)^2}{2 \sigma^2}}, \quad x \in \mathbb{R}, \, \mu \in \mathbb{R}, \, \sigma \in \mathbb{R}_{&gt;0}
+\tag{10.1}\]</span></span></p>
+<div id="fig-normdist-pdf" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normdist-pdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="stats-norm_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normdist-pdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;10.1: Общий вид нормального распределения
+</figcaption>
+</figure>
+</div>
+<div id="nte-normdist" class="callout callout-style-default callout-note callout-titled" title="История нормального распределения">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;10.1: История нормального распределения
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ПЕРЕПИСАТЬ!!!!!!!!</p>
+<ul>
+<li>Его очень давно знают. Карл Фридрих Гаусс (1777–1855) исчерпывающе его исследовал, и&nbsp;теперь про&nbsp;это распределение известно всё. И&nbsp;ещё чуть более.</li>
+<li>Ряд статистических методов, называемых параметрическими, <del>требуют</del>, чтобы&nbsp;распределение изучаемых переменных подчинялось нормальному закону.
+<ul>
+<li>Сейчас, строго говоря, это уже не&nbsp;совсем так. Появляются новые исследования и&nbsp;симуляции, показывающие, что&nbsp;это далеко не&nbsp;ключевое требование.</li>
+</ul></li>
+<li>С&nbsp;помощью нормального распределения определяют статистические нормы. Например, в&nbsp;образовательном тестировании, психодиагностике и&nbsp;иногда клинической практике.</li>
+<li>На&nbsp;основании нормального распределения рассчитывается стандартная ошибка среднего&nbsp;— важная оценка в&nbsp;статистике.</li>
+<li>На&nbsp;основании нормального распределения, а&nbsp;точнее&nbsp;— стандартной ошибки&nbsp;— рассчитываются доверительные интервалы среднего&nbsp;— одна из&nbsp;ключевых оценок в&nbsp;статистике.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="norm-normdist-shape" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="norm-normdist-shape"><span class="header-section-number">10.2.2</span> Форма нормального распределения и&nbsp;параметры</h3>
+<p>Очевидно, что&nbsp;раз у&nbsp;распределения есть какие-то параметры, значит они каким-то образом на&nbsp;него влияют. Не&nbsp;менее очевидно, что&nbsp;среднее <span class="math inline">\(\mu\)</span> будет задавать положение центра колокола на&nbsp;оси <span class="math inline">\(x\)</span>, а&nbsp;дисперсия <span class="math inline">\(\sigma^2\)</span>&nbsp;— ширину колокола. Ниже представлены несколько нормальных распределений c&nbsp;различными параметрами:</p>
+<div id="fig-normdist-params" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normdist-params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="stats-norm_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normdist-params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;10.2: Вид функции плотности нормального распределения при&nbsp;различных параметрах
+</figcaption>
+</figure>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

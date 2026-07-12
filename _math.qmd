@@ -1,3 +1,8 @@
+
+
+
+\newcommand{norm}{\mathcal{N}}
+
 \newcommand{logloss}{\text{LogLoss}}
 \newcommand{accuracy}{\text{accuracy}}
 \newcommand{precision}{\text{precision}}
