@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -274,7 +303,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#andan-ml-approach" id="toc-andan-ml-approach" class="nav-link active" data-scroll-target="#andan-ml-approach"><span class="header-section-number">23.1</span> Машинное обучение как подход к&nbsp;линейным моделям</a></li>
+  <li><a href="#andan-ml-lm" id="toc-andan-ml-lm" class="nav-link" data-scroll-target="#andan-ml-lm"><span class="header-section-number">23.2</span> Линейная регрессия в&nbsp;машинном обучении</a></li>
+  <li><a href="#andan-ml-logreg" id="toc-andan-ml-logreg" class="nav-link" data-scroll-target="#andan-ml-logreg"><span class="header-section-number">23.3</span> Логистическая регрессия в&nbsp;машинном обучении</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -298,8 +335,50 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>\newcommand{logloss}{} \newcommand{accuracy}{} \newcommand{precision}{} \newcommand{recall}{} \newcommand{Fscore}{}</p>
+<section id="andan-ml-approach" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="andan-ml-approach"><span class="header-section-number">23.1</span> Машинное обучение как подход к&nbsp;линейным моделям</h2>
+</section>
+<section id="andan-ml-lm" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="andan-ml-lm"><span class="header-section-number">23.2</span> Линейная регрессия в&nbsp;машинном обучении</h2>
+<p><span class="math display">\[
+R^2 = 1 - \frac{\text{RSS}}{\text{TSS}} = 1 - \frac{\sum_{i=1}^n (y_i - \hat y_i)}{\sum_{i=1}^n (y_i - \overline y)}
+\]</span></p>
+<p><span class="math display">\[
+R^2_\text{adj} = 1 - \frac{(1 - R^2)(n-1)}{n-k-1}
+\]</span></p>
+<p><span class="math inline">\(k\)</span> — количество предикторов, <span class="math inline">\(n\)</span> — количество наблюдений, <span class="math inline">\(R^2\)</span> — обычный (нескорректированный) коэффициент детерминации.</p>
+<p><span class="math display">\[
+\text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat y_i)^2
+\]</span></p>
+<p><span class="math display">\[
+\text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^n (y_i - \hat y_i)^2 }
+\]</span></p>
+<p><span class="math display">\[
+\text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat y_i|
+\]</span></p>
+</section>
+<section id="andan-ml-logreg" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="andan-ml-logreg"><span class="header-section-number">23.3</span> Логистическая регрессия в&nbsp;машинном обучении</h2>
+<p><span class="math display">\[
+L = - \Big( (y \cdot \log p) + (1-y) \cdot \log (1-p) \Big)
+\]</span></p>
+<p>где <span class="math inline">\(y\)</span> — истинный класс (обычно <span class="math inline">\(0\)</span> или <span class="math inline">\(1\)</span>), <span class="math inline">\(p\)</span> — предсказанная вероятность того, что объект принадлежит классу <span class="math inline">\(1\)</span>.</p>
+<p><span class="math display">\[
+\logloss = -\frac{1}{N} \sum_{i=1}^n \Big( (y_i \cdot \log p_i) + (1-y_i) \cdot \log (1-p_i) \Big)
+\]</span></p>
+<p><span class="math display">\[
+\accuracy = \frac{\TN + \TP}{\TN + \TP + \FN + \FP}
+\]</span></p>
+<p><span class="math display">\[
+\precision = \frac{\TP}{\TP + \FP}
+\]</span></p>
+<p><span class="math display">\[
+\recall = \frac{\TP}{\TP + \FN}
+\]</span></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

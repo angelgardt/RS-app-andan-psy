@@ -1,0 +1,5 @@
+\newcommand{logloss}{\text{LogLoss}}
+\newcommand{accuracy}{\text{accuracy}}
+\newcommand{precision}{\text{precision}}
+\newcommand{recall}{\text{recall}}
+\newcommand{Fscore}{\text{F}}

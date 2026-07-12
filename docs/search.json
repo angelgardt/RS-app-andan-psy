@@ -8,5 +8,35 @@
     "crumbs": [
       "Preface"
     ]
+  },
+  {
+    "objectID": "chpts/andan-ml.html",
+    "href": "chpts/andan-ml.html",
+    "title": "23  Линейные модели в машинном обучении",
+    "section": "",
+    "text": "23.1 Машинное обучение как подход к линейным моделям",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Линейные модели в машинном обучении</span>"
+    ]
+  },
+  {
+    "objectID": "chpts/andan-ml.html#andan-ml-lm",
+    "href": "chpts/andan-ml.html#andan-ml-lm",
+    "title": "23  Линейные модели в машинном обучении",
+    "section": "23.2 Линейная регрессия в машинном обучении",
+    "text": "23.2 Линейная регрессия в машинном обучении\n\\[\nR^2 = 1 - \\frac{\\text{RSS}}{\\text{TSS}} = 1 - \\frac{\\sum_{i=1}^n (y_i - \\hat y_i)}{\\sum_{i=1}^n (y_i - \\overline y)}\n\\]\n\\[\nR^2_\\text{adj} = 1 - \\frac{(1 - R^2)(n-1)}{n-k-1}\n\\]\n\\(k\\) — количество предикторов, \\(n\\) — количество наблюдений, \\(R^2\\) — обычный (нескорректированный) коэффициент детерминации.\n\\[\n\\text{MSE} = \\frac{1}{n} \\sum_{i=1}^n (y_i - \\hat y_i)^2\n\\]\n\\[\n\\text{RMSE} = \\sqrt{ \\frac{1}{n} \\sum_{i=1}^n (y_i - \\hat y_i)^2 }\n\\]\n\\[\n\\text{MAE} = \\frac{1}{n} \\sum_{i=1}^n |y_i - \\hat y_i|\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Линейные модели в машинном обучении</span>"
+    ]
+  },
+  {
+    "objectID": "chpts/andan-ml.html#andan-ml-logreg",
+    "href": "chpts/andan-ml.html#andan-ml-logreg",
+    "title": "23  Линейные модели в машинном обучении",
+    "section": "23.3 Логистическая регрессия в машинном обучении",
+    "text": "23.3 Логистическая регрессия в машинном обучении\n\\[\nL = - \\Big( (y \\cdot \\log p) + (1-y) \\cdot \\log (1-p) \\Big)\n\\]\nгде \\(y\\) — истинный класс (обычно \\(0\\) или \\(1\\)), \\(p\\) — предсказанная вероятность того, что объект принадлежит классу \\(1\\).\n\\[\n\\logloss = -\\frac{1}{N} \\sum_{i=1}^n \\Big( (y_i \\cdot \\log p_i) + (1-y_i) \\cdot \\log (1-p_i) \\Big)\n\\]\n\\[\n\\accuracy = \\frac{\\TN + \\TP}{\\TN + \\TP + \\FN + \\FP}\n\\]\n\\[\n\\precision = \\frac{\\TP}{\\TP + \\FP}\n\\]\n\\[\n\\recall = \\frac{\\TP}{\\TP + \\FN}\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Линейные модели в машинном обучении</span>"
+    ]
   }
 ]
