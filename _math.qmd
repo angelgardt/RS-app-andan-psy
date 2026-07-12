@@ -1,10 +1,12 @@
+\newcommand{\setN}{\mathbb{N}}
+\newcommand{\setZ}{\mathbb{Z}}
+\newcommand{\setQ}{\mathbb{Q}}
+\newcommand{\setR}{\mathbb{R}}
 
+\newcommand{\norm}{\mathcal{N}}
 
-
-\newcommand{norm}{\mathcal{N}}
-
-\newcommand{logloss}{\text{LogLoss}}
-\newcommand{accuracy}{\text{accuracy}}
-\newcommand{precision}{\text{precision}}
-\newcommand{recall}{\text{recall}}
-\newcommand{Fscore}{\text{F}}
+\newcommand{\logloss}{\text{LogLoss}}
+\newcommand{\accuracy}{\text{accuracy}}
+\newcommand{\precision}{\text{precision}}
+\newcommand{\recall}{\text{recall}}
+\newcommand{\Fscore}{\text{F}}

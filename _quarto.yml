@@ -48,6 +48,8 @@ book:
 
 # bibliography: references.bib
 
+lightbox: true
+
 format:
   html:
     theme:

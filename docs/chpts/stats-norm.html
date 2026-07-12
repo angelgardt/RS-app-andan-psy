@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -210,7 +213,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chpts/stats-hyptest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Тестирвоание статистических гипотез</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Тестирование статистических гипотез</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -312,6 +315,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#norm-normdist-params" id="toc-norm-normdist-params" class="nav-link" data-scroll-target="#norm-normdist-params"><span class="header-section-number">10.2.1</span> Параметры нормального распределения</a></li>
   <li><a href="#norm-normdist-shape" id="toc-norm-normdist-shape" class="nav-link" data-scroll-target="#norm-normdist-shape"><span class="header-section-number">10.2.2</span> Форма нормального распределения и&nbsp;параметры</a></li>
+  <li><a href="#norm-normdist-probs" id="toc-norm-normdist-probs" class="nav-link" data-scroll-target="#norm-normdist-probs"><span class="header-section-number">10.2.3</span> Стандартные отклонения и&nbsp;вероятности</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -343,7 +347,9 @@ window.Quarto = {
 </div>
 <section id="norm-popdist" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="norm-popdist"><span class="header-section-number">10.1</span> Распределение признаков в&nbsp;генеральной совокупности</h2>
-<p>— Можем&nbsp;ли мы знать наверняка, как&nbsp;распределен признак в&nbsp;генеральной совокупности? <br> — Нет. <br> Однако мы можем предполагать некоторое теоретическое распределение признака.</p>
+<blockquote class="blockquote">
+<p>— Можем&nbsp;ли мы знать наверняка, как&nbsp;распределен признак в&nbsp;генеральной совокупности? <br> — Нет. Однако мы можем предполагать некоторое теоретическое распределение признака.</p>
+</blockquote>
 <p>На&nbsp;основе чего мы можем сделать такое предположение? Конечно&nbsp;же, на&nbsp;основе собранных данных, то&nbsp;есть на&nbsp;основании выборки. Большой выборки. Очень большой выборки. Большого количества очень больших выборок.</p>
 <p>На&nbsp;практике мы руководствуемся либо рядом допущений относительно теоретического распределения случайной величины, либо опираемся на&nbsp;математические обоснования формы распределения.</p>
 <p>Теоретических распределений существует много. Они различаются по&nbsp;форме, параметрам, которыми они задаются, значениям, которые они могут принимать, величинам, которые ими можно описывать и&nbsp;т.&nbsp;д. Однако есть одно распределение, которое является крайне распространенным и&nbsp;очень широко используемым&nbsp;— <em>нормальное распределение</em>. Его мы и&nbsp;будем рассматривать.</p>
@@ -352,7 +358,7 @@ window.Quarto = {
 <h2 data-number="10.2" class="anchored" data-anchor-id="norm-normdist"><span class="header-section-number">10.2</span> Нормальное распределение</h2>
 <p>Тот факт, что некоторая величина распределена согласно закону <strong>нормального распределения (normal distribution)</strong>, записывается следующим образом:</p>
 <p><span class="math display">\[
-X \thicksim \norm(\mu, \sigma^2)
+X \thicksim \mathcal{N}(\mu, \sigma^2)
 \]</span></p>
 <p>Здесь <span class="math inline">\(X\)</span>&nbsp;— некоторая случайная величина (переменная), <span class="math inline">\(\mathcal{N}\)</span>&nbsp;— обозначение нормального распределения, <span class="math inline">\(\mu\)</span> и&nbsp;<span class="math inline">\(\sigma^2\)</span>&nbsp;— параметры нормального распределения.</p>
 <section id="norm-normdist-params" class="level3" data-number="10.2.1">
@@ -364,7 +370,7 @@ X \thicksim \norm(\mu, \sigma^2)
 </ul>
 <p>Эти два параметра входят в&nbsp;формулу, описывающую график функции плотности вероятности нормального распределения (<a href="#eq-norm-pdf" class="quarto-xref">Уравнение&nbsp;<span>10.1</span></a>) и&nbsp;могут быть отображены на&nbsp;графике (<a href="#fig-normdist-pdf" class="quarto-xref">Рисунок&nbsp;<span>10.1</span></a>).</p>
 <p><span id="eq-norm-pdf"><span class="math display">\[
-f_{\norm(\mu, \sigma^2)}(x) = \frac{1}{\sigma \sqrt{2\pi}} e ^{- \frac{(x-\mu)^2}{2 \sigma^2}}, \quad x \in \mathbb{R}, \, \mu \in \mathbb{R}, \, \sigma \in \mathbb{R}_{&gt;0}
+f_{\mathcal{N}(\mu, \sigma^2)}(x) = \frac{1}{\sigma \sqrt{2\pi}} e ^{- \frac{(x-\mu)^2}{2 \sigma^2}}, \quad x \in \mathbb{R}, \, \mu \in \mathbb{R}, \, \sigma \in \mathbb{R}_{&gt;0}
 \tag{10.1}\]</span></span></p>
 <div id="fig-normdist-pdf" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -373,7 +379,7 @@ f_{\norm(\mu, \sigma^2)}(x) = \frac{1}{\sigma \sqrt{2\pi}} e ^{- \frac{(x-\mu)^2
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="stats-norm_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="stats-norm_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="stats-norm_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -384,13 +390,13 @@ f_{\norm(\mu, \sigma^2)}(x) = \frac{1}{\sigma \sqrt{2\pi}} e ^{- \frac{(x-\mu)^2
 </figcaption>
 </figure>
 </div>
-<div id="nte-normdist" class="callout callout-style-default callout-note callout-titled" title="История нормального распределения">
+<div id="nte-normdist" class="callout callout-style-default callout-note callout-titled" title="Почему нам так важно нормальное распределение?">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;10.1: История нормального распределения
+Note&nbsp;10.1: Почему нам так важно нормальное распределение?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -410,7 +416,7 @@ Note&nbsp;10.1: История нормального распределения
 </section>
 <section id="norm-normdist-shape" class="level3" data-number="10.2.2">
 <h3 data-number="10.2.2" class="anchored" data-anchor-id="norm-normdist-shape"><span class="header-section-number">10.2.2</span> Форма нормального распределения и&nbsp;параметры</h3>
-<p>Очевидно, что&nbsp;раз у&nbsp;распределения есть какие-то параметры, значит они каким-то образом на&nbsp;него влияют. Не&nbsp;менее очевидно, что&nbsp;среднее <span class="math inline">\(\mu\)</span> будет задавать положение центра колокола на&nbsp;оси <span class="math inline">\(x\)</span>, а&nbsp;дисперсия <span class="math inline">\(\sigma^2\)</span>&nbsp;— ширину колокола. Ниже представлены несколько нормальных распределений c&nbsp;различными параметрами:</p>
+<p>Очевидно, что&nbsp;раз у&nbsp;распределения есть какие-то параметры, значит они каким-то образом на&nbsp;него влияют. Не&nbsp;менее очевидно, что&nbsp;среднее <span class="math inline">\(\mu\)</span> будет задавать положение центра колокола на&nbsp;оси <span class="math inline">\(x\)</span>, а&nbsp;дисперсия <span class="math inline">\(\sigma^2\)</span>&nbsp;— ширину колокола (<a href="#fig-normdist-params" class="quarto-xref">Рисунок&nbsp;<span>10.2</span></a>).</p>
 <div id="fig-normdist-params" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normdist-params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -418,19 +424,128 @@ Note&nbsp;10.1: История нормального распределения
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="stats-norm_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="stats-norm_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="stats-norm_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normdist-params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;10.2: Вид функции плотности нормального распределения при&nbsp;различных параметрах
+Рисунок&nbsp;10.2: Вид функции плотности нормального распределения при&nbsp;различных значениях параметров
 </figcaption>
 </figure>
 </div>
+</section>
+<section id="norm-normdist-probs" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="norm-normdist-probs"><span class="header-section-number">10.2.3</span> Стандартные отклонения и&nbsp;вероятности</h3>
+<p>Параметры распределения даны нам не&nbsp;просто так, а&nbsp;потому, что они исчерпывающе его описывают (<a href="#fig-normdist-probs" class="quarto-xref">Рисунок&nbsp;<span>10.3</span></a>).</p>
+<div id="fig-normdist-probs" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normdist-probs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="stats-norm_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="stats-norm_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normdist-probs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;10.3: Вероятности попадания значений нормально распределенной случайной величины в&nbsp;диапазоны между стандартными отклонениями
+</figcaption>
+</figure>
+</div>
+<p>Конкретно с этими вероятностями мы работаем реже&nbsp;— полезнее оказывается знать следующие (<a href="#fig-normdist-probs2" class="quarto-xref">Рисунок&nbsp;<span>10.4</span></a>).</p>
+<div id="fig-normdist-probs2" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normdist-probs2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-normdist-probs2" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-normdist-probs2-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-normdist-probs2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="stats-norm_files/figure-html/fig-normdist-probs2-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="fig-normdist-probs2"><img src="stats-norm_files/figure-html/fig-normdist-probs2-1.png" class="img-fluid figure-img" data-ref-parent="fig-normdist-probs2" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-normdist-probs2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Одно стандартное отклонение от&nbsp;среднего
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-normdist-probs2" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-normdist-probs2-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-normdist-probs2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="stats-norm_files/figure-html/fig-normdist-probs2-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="fig-normdist-probs2"><img src="stats-norm_files/figure-html/fig-normdist-probs2-2.png" class="img-fluid figure-img" data-ref-parent="fig-normdist-probs2" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-normdist-probs2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Два стандартных отклонения от&nbsp;среднего
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-normdist-probs2" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-normdist-probs2-3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-normdist-probs2-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="stats-norm_files/figure-html/fig-normdist-probs2-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="fig-normdist-probs2"><img src="stats-norm_files/figure-html/fig-normdist-probs2-3.png" class="img-fluid figure-img" data-ref-parent="fig-normdist-probs2" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-normdist-probs2-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Три стандартных отклонения от&nbsp;среднего
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-normdist-probs2" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-normdist-probs2-4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-normdist-probs2-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="stats-norm_files/figure-html/fig-normdist-probs2-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="fig-normdist-probs2"><img src="stats-norm_files/figure-html/fig-normdist-probs2-4.png" class="img-fluid figure-img" data-ref-parent="fig-normdist-probs2" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-normdist-probs2-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Четыре (и&nbsp;более) стандартных отклонения от&nbsp;среднего
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normdist-probs2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;10.4: Вероятности попадания значений нормально распределенной случайной величины в&nbsp;диапазоны стандартных отклонений от&nbsp;среднего значения
+</figcaption>
+</figure>
+</div>
+<p><span id="eq-normdist-probs"><span class="math display">\[
+\begin{split}
+&amp;\mathbb{P} \big( X \in (\mu - \sigma, \mu + \sigma) \big) = 68.2\% \\
+&amp;\mathbb{P} \big( X \in (\mu - 2\sigma, \mu + 2\sigma) \big) = 95.6\% \\
+&amp;\mathbb{P} \big( X \in (\mu - 3\sigma, \mu + 3\sigma) \big) = 99.8\%
+\end{split}
+\tag{10.2}\]</span></span></p>
+<p>То&nbsp;есть</p>
+<ul>
+<li>в&nbsp;пределах одного стандартного отклонения от&nbsp;среднего значения лежит почти 70% значений&nbsp;— это очень частотные значения (<a href="#fig-normdist-probs2-1" class="quarto-xref">Рисунок&nbsp;<span>10.4 (a)</span></a>);</li>
+<li>в&nbsp;пределах двух стандартных отклонений от&nbsp;среднего значения лежит 95% значений&nbsp;— бо́льшая часть выборки(<a href="#fig-normdist-probs2-2" class="quarto-xref">Рисунок&nbsp;<span>10.4 (b)</span></a>);</li>
+<li>в&nbsp;пределах трех стандартных отклонений от&nbsp;среднего значения лежит практически 100% выборки&nbsp;— практически вся выборка (<a href="#fig-normdist-probs2-3" class="quarto-xref">Рисунок&nbsp;<span>10.4 (c)</span></a>).</li>
+<li><ol class="example" type="1">
+<li></li>
+</ol></li>
+</ul>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;10.1: Общий вид нормального распределения</span>
+<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;10.2: Вид функции плотности нормального распределения при&nbsp;различных значениях параметров</span>
+<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;10.3: Вероятности попадания значений нормально распределенной случайной величины в&nbsp;диапазоны между стандартными отклонениями</span>
+<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;10.4&nbsp;(a): Одно стандартное отклонение от&nbsp;среднего</span>
+<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;10.4&nbsp;(b): Два стандартных отклонения от&nbsp;среднего</span>
+<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;10.4&nbsp;(c): Три стандартных отклонения от&nbsp;среднего</span>
+<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;10.4&nbsp;(d): Четыре (и&nbsp;более) стандартных отклонения от&nbsp;среднего</span>
+</div>
 </section>
 </section>
 
@@ -857,6 +972,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
